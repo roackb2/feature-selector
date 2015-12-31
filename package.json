@@ -1,0 +1,30 @@
+{
+  "name": "feature-selector",
+  "version": "1.0.0",
+  "description": "feature selection implementation for Node.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roackb2/feature-selector.git"
+  },
+  "keywords": [
+    "feature",
+    "selection"
+  ],
+  "author": "Jay Liang <roackb2@gmail.com> (https://www.facebook.com/profile.php?id=1391931108)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roackb2/feature-selector/issues"
+  },
+  "homepage": "https://github.com/roackb2/feature-selector#readme",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "natural": "^0.2.1"
+  }
+}
