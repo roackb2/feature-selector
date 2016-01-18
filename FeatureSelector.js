@@ -42,7 +42,9 @@ FeatureSelector.prototype = {
 		}
 		doc.content = content;
 		doc.label = label;
-		var cls = this.classes.find(x => x.label == label);
+		var cls = this.classes.find(function(x) {
+			return x.label == label;
+		});
 		if(cls === undefined) {
 			cls = {
 				label: label,
@@ -64,7 +66,9 @@ FeatureSelector.prototype = {
 				i--;
 			} else {
 				var term = terms[i];
-				var posting = this.postings.find(x => x.term == term);
+				var posting = this.postings.find(function(x) {
+					return x.term == term;
+				});
 
 				var posting;
 				if(posting === undefined) {
@@ -94,12 +98,12 @@ FeatureSelector.prototype = {
 	},
 
 	getFeature: function(k, method, showProgress) {
-		_.forEach(this.postings, posting => {
+		_.forEach(this.postings, function(posting) {
 			if(showProgress && i % 1000 == 0) {
 				console.log("getting utility score for No." + i + " term");
 			}
 			var term = posting.term;
-			_.forEach(this.classes, cls => {
+			_.forEach(this.classes, function(cls) {
 				if(!cls.features) {
 					cls.features = [];
 				}
@@ -113,8 +117,8 @@ FeatureSelector.prototype = {
 
 		var clusters = [];
 
-		_.forEach(this.classes, cls => {
-			cls.features.sort((item1, item2) => {
+		_.forEach(this.classes, function(cls) {
+			cls.features.sort(function(item1, item2) {
 				return item2.utility - item1.utility;
 			});
 			cls.features.splice(k, cls.features.length);
@@ -139,8 +143,8 @@ FeatureSelector.prototype = {
 		var n11 = 1;
 		var n1i = posting.indexes.length + 2;
 		var ni1 = cls.docs.length + 2;
-		_.forEach(posting.indexes, index => {
-			if(cls.docs.some(element => {
+		_.forEach(posting.indexes, function(index) {
+			if(cls.docs.some(function(element) {
 				return element.index == index;
 			})) {
 				n11++;
