@@ -98,7 +98,7 @@ FeatureSelector.prototype = {
 	},
 
 	getFeature: function(k, method, showProgress) {
-		_.forEach(this.postings, function(posting) {
+		_.forEach(this.postings, function(posting, i) {
 			if(showProgress && i % 1000 == 0) {
 				console.log("getting utility score for No." + i + " term");
 			}
